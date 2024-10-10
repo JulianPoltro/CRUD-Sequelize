@@ -21,4 +21,4 @@ const Generos = sequelize.define(
   }
 );
 
-module.exports({ Generos });
+module.exports={ Generos };

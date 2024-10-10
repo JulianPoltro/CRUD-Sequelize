@@ -1,7 +1,7 @@
 // Model for Contenido
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Categoria = require("./categoria");
+const Categorias = require("./categoria");
 
 const Contenido = sequelize.define(
   "Contenido",
@@ -54,4 +54,4 @@ const Contenido = sequelize.define(
   }
 );
 
-module.exports({ Contenido });
+module.exports={ Contenido };
