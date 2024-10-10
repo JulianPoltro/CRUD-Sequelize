@@ -1,5 +1,6 @@
+// Model for Categoria
+const { sequelize } = require("../conexion/connection");
 const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
 
 const Actores = sequelize.define(
   "Actores",
@@ -24,4 +25,4 @@ const Actores = sequelize.define(
   }
 );
 
-module.exports = Actores;
+module.exports({ Actores });
