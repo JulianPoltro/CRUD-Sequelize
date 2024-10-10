@@ -7,6 +7,11 @@ const db = require('./conexion/database');
 app.use(express.json());
 app.use('/contenido', contenidoRoutes);
 
+app.get("/", (req, res) => {
+  res.send("Bienvenido a la API del SuperMarket!");
+});
+
+
 // Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

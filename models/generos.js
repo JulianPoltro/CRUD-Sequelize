@@ -1,5 +1,5 @@
 // Model for Genero
-const { sequelize } = require("../conexion/connection");
+const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
 
 const Generos = sequelize.define(

@@ -1,0 +1,2 @@
+### Muestra todos los articulos de la lista
+GET  http://localhost:3000/

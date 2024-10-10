@@ -1,5 +1,5 @@
 // Model for Contenido
-const { sequelize } = require("../conexion/connection");
+const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
 const Categoria = require("./categoria");
 
@@ -42,7 +42,7 @@ const Contenido = sequelize.define(
     categoria_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Categoria,
+        model: Categorias,
         key: "id",
       },
       allowNull: false,
