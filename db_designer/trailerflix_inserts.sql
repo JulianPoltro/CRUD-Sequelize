@@ -1,7 +1,7 @@
 use trailerflix;
 
-INSERT INTO Categorias (id, nombre) VALUES (1, 'Película');
-INSERT INTO Categorias (id, nombre) VALUES (2, 'Serie');
+INSERT INTO Categorias (id, nombre) VALUES (1, 'Serie');
+INSERT INTO Categorias (id, nombre) VALUES (2, 'Película');
 
 INSERT INTO Generos (id, nombre) VALUES (1, 'Música');
 INSERT INTO Generos (id, nombre) VALUES (2, 'Familia');
