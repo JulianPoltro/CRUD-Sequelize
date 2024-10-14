@@ -19,20 +19,12 @@ const Contenido = sequelize.define(
       type: DataTypes.STRING(255),
       allowNull: false,
     },
-    busqueda: {
-      type: DataTypes.TEXT,
-      allowNull: true,
-    },
     resumen: {
       type: DataTypes.TEXT,
       allowNull: true,
     },
     temporadas: {
       type: DataTypes.STRING(5),
-      allowNull: true,
-    },
-    reparto: {
-      type: DataTypes.TEXT,
       allowNull: true,
     },
     trailer: {

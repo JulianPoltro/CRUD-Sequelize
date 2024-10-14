@@ -14,10 +14,6 @@ const Actores = sequelize.define(
       type: DataTypes.STRING(60),
       allowNull: false,
     },
-    fecha_Nacimiento: {
-      type: DataTypes.DATE,
-      allowNull: true,
-    },
   },
   {
     tableName: "Actores",
