@@ -22,9 +22,4 @@ const Generos = sequelize.define(
   }
 );
 
-Generos.belongsToMany(Contenido, {
-  through: ContenidoGeneros,
-  foreignKey: 'genero_id',
-});
-
-module.exports={ Generos };
+module.exports= Generos ;

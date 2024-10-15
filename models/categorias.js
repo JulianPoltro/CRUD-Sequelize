@@ -22,8 +22,5 @@ const Categorias = sequelize.define(
   }
 );
 
-Categorias.hasMany(Contenido, {
-  foreignKey: "categoria_id",
-});
 
-module.exports = { Categorias };
+module.exports =  Categorias ;

@@ -2,6 +2,7 @@
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
 const Contenido = require("./contenidos");
+const Contenido_Actores = require("./contenidoActores");
 
 const Actores = sequelize.define(
   "Actores",
@@ -22,9 +23,4 @@ const Actores = sequelize.define(
   }
 );
 
-Actores.belongsToMany(Contenido, {
-  through: 'Contenido_Actores',
-  foreignKey: 'actor_ID',
-});
-
-module.exports={ Actores };
+module.exports =  Actores ;

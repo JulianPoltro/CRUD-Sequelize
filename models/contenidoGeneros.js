@@ -25,4 +25,4 @@ const Contenido_Generos = sequelize.define('Contenido_Generos', {
   timestamps: false,
 });
 
-module.exports={ Contenido_Generos };
+module.exports= Contenido_Generos ;
