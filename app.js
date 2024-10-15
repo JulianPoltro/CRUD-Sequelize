@@ -1,5 +1,5 @@
 const express = require('express');
-const { Contenido } = require("./models/contenido");
+const { Contenido } = require("./models/contenidos");
 const app = express();
 const contenidoRoutes = require('./routes/contenidoRoutes');
 const db = require('./conexion/database');
