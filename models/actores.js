@@ -1,6 +1,7 @@
 // Model for Categoria
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
+const Contenido = require("./contenidos");
 
 const Actores = sequelize.define(
   "Actores",
@@ -20,5 +21,10 @@ const Actores = sequelize.define(
     timestamps: false,
   }
 );
+
+Actores.belongsToMany(Contenido, {
+  through: 'Contenido_Actores',
+  foreignKey: 'actor_ID',
+});
 
 module.exports={ Actores };

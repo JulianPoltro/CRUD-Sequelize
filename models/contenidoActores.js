@@ -1,8 +1,8 @@
 // Model for Contenido_Actor
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Contenido = require("./contenido");
-const Actores = require("./actor");
+const Contenido = require("./contenidos");
+const Actores = require("./actores");
 
 const Contenido_Actores = sequelize.define(
   "Contenido_Actores",

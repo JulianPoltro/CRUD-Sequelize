@@ -1,7 +1,9 @@
 // Model for Contenido
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Categorias = require("./categoria");
+const Categorias = require("./categorias");
+const Actores = require("./actores");
+const Generos = require("./generos");
 
 const Contenido = sequelize.define(
   "Contenido",
@@ -45,5 +47,21 @@ const Contenido = sequelize.define(
     timestamps: false,
   }
 );
+
+
+Contenido.belongsToMany(Actores, {
+  through: 'Contenido_Actores',
+  foreignKey: 'contenido_ID',
+});
+
+Contenido.belongsToMany(Generos, {
+  through: Contenido_Generos,
+  foreignKey: 'contenido_id',
+});
+
+Contenido.belongsTo(Categorias, {
+  foreignKey: 'categoria_id',
+});
+
 
 module.exports={ Contenido };

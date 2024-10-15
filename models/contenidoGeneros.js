@@ -1,6 +1,6 @@
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Contenido = require("./contenido");
+const Contenido = require("./contenidos");
 const Genero = require("./generos");
 
 const Contenido_Generos = sequelize.define('Contenido_Generos', {
@@ -15,7 +15,7 @@ const Contenido_Generos = sequelize.define('Contenido_Generos', {
   genero_id: {
     type: DataTypes.INTEGER,
     references: {
-      model: Generos,
+      model: Genero,
       key: 'id',
     },
     primaryKey: true,

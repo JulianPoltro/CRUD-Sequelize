@@ -1,6 +1,7 @@
 // Model for Genero
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
+const Contenido = require("./contenidos");
 
 const Generos = sequelize.define(
   "Generos",
@@ -20,5 +21,10 @@ const Generos = sequelize.define(
     timestamps: false,
   }
 );
+
+Generos.belongsToMany(Contenido, {
+  through: ContenidoGeneros,
+  foreignKey: 'genero_id',
+});
 
 module.exports={ Generos };
