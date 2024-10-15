@@ -1,6 +1,5 @@
 const { Op, fn, col, literal } = require("sequelize");
 const { sequelize } = require("../conexion/database");
-const Actor = require("../models/actores");
 const Categoria = require("../models/categorias");
 const Contenido = require("../models/contenidos");
 const Genero = require("../models/generos");
@@ -12,10 +11,14 @@ const getAllContenido = async (req, res) => {
       attributes: {
         include: [
           [
-            literal(`(SELECT GROUP_CONCAT(A.nombre SEPARATOR ', ') FROM Actores A
-            INNER JOIN Contenido_Actores CA ON A.id = CA.actor_ID
-            WHERE CA.contenido_ID = Contenido.id)`),
-            "actores",
+            literal(`(SELECT GROUP_CONCAT(DISTINCT a.nombre
+                SEPARATOR ', ') 
+                FROM 
+                  actores a 
+                    INNER JOIN 
+                  Contenido_Actores CA ON a.id = CA.actor_ID
+                    WHERE CA.contenido_ID = Contenido.id)`),
+            "reparto",
           ],
         ],
       },
