@@ -4,7 +4,7 @@ SELECT
     c.poster,
     c.titulo,
     cat.nombre AS categoria,
-    MIN(g.nombre) AS gen,
+    -- MIN(g.nombre) AS gen,
     GROUP_CONCAT(DISTINCT g.nombre
         SEPARATOR ', ') AS genero,
     CONCAT(c.titulo,
