@@ -3,3 +3,6 @@ GET  http://localhost:3000/
 
 ### Muestra todos los articulos de la lista
 GET  http://localhost:3000/contenidos
+
+### Muestra todos los articulos de la lista
+GET  http://localhost:3000/contenidos/1

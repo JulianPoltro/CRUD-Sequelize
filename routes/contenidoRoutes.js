@@ -3,11 +3,9 @@ const router = express.Router();
 const contenidoController = require('../controllers/contenidoController');
 
 // Routes for CRUD
+//Routes para contenido
 router.get('/', contenidoController.getAllContenido);
-
-// router.get('/:id', (req, res) => {
-//     // Get content by ID
-// });
+router.get('/:id', contenidoController.getIdContenido);
 
 // router.post('/', (req, res) => {
 //     // Add new content
