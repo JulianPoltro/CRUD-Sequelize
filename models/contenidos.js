@@ -1,10 +1,6 @@
 // Model for Contenido
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Categorias = require("./categorias");
-const Actores = require("./actores");
-const Contenido_Actores = require("./contenidoActores");
-const Generos = require("./generos");
 
 const Contenido = sequelize.define(
   "Contenido",
@@ -37,7 +33,7 @@ const Contenido = sequelize.define(
     categoria_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'Categorias',
+        model: "Categorias",
         key: "id",
       },
       allowNull: false,

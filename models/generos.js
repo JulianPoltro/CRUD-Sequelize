@@ -1,7 +1,6 @@
 // Model for Genero
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Contenido = require("./contenidos");
 
 const Generos = sequelize.define(
   "Generos",
@@ -22,4 +21,4 @@ const Generos = sequelize.define(
   }
 );
 
-module.exports= Generos ;
+module.exports = Generos;

@@ -1,7 +1,6 @@
 // Model for Categoria
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Contenido = require("./contenidos");
 
 const Categorias = sequelize.define(
   "Categorias",

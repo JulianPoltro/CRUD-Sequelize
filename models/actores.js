@@ -1,8 +1,6 @@
 // Model for Categoria
 const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
-const Contenido = require("./contenidos");
-const Contenido_Actores = require("./contenidoActores");
 
 const Actores = sequelize.define(
   "Actores",

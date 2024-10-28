@@ -1,8 +1,6 @@
 const { Op, fn, col, literal } = require("sequelize");
 const { sequelize } = require("../conexion/database");
-const Categoria = require("../models/categorias");
 const Contenido = require("../models/contenidos");
-const Genero = require("../models/generos");
 const Contenidos = require("../models/asociacionModel");
 
 const getAllContenido = async (req, res) => {
