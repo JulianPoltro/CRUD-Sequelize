@@ -6,6 +6,7 @@ const Categoria = require("../models/categorias");
 const Genero = require("../models/generos");
 const Actor = require("../models/actores");
 const ContenidoActores = require("../models/contenidoActores");
+const ContenidoGeneros = require("../models/contenidoGeneros");
 
 const getAllContenido = async (req, res) => {
   try {
@@ -14,18 +15,35 @@ const getAllContenido = async (req, res) => {
         "id",
         "poster",
         "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
         [
           literal(`(
-            SELECT GROUP_CONCAT(DISTINCT a.nombre SEPARATOR ', ')
+            SELECT c.nombre
+            FROM categorias c
+            WHERE c.id = Contenido.categoria_id
+          )`),
+          "categoria",
+        ],
+        [
+          literal(`(
+            SELECT GROUP_CONCAT(DISTINCT g.nombre SEPARATOR ', ')
+            FROM generos g
+            INNER JOIN Contenido_Generos cg ON g.id = cg.genero_id
+            WHERE cg.contenido_id = Contenido.id
+          )`),
+          "generos",
+        ],
+        "resumen",
+        "temporadas",
+        [
+          literal(`(
+            SELECT GROUP_CONCAT(a.nombre SEPARATOR ', ')
             FROM actores a
             INNER JOIN Contenido_Actores ca ON a.id = ca.actor_ID
             WHERE ca.contenido_ID = Contenido.id
           )`),
           "reparto",
         ],
+        "trailer",
       ],
     });
 
@@ -50,18 +68,35 @@ const getIdContenido = async (req, res) => {
         "id",
         "poster",
         "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
         [
           literal(`(
-              SELECT GROUP_CONCAT(DISTINCT a.nombre SEPARATOR ', ')
-              FROM actores a
-              INNER JOIN Contenido_Actores ca ON a.id = ca.actor_ID
-              WHERE ca.contenido_ID = Contenido.id
-            )`),
+            SELECT c.nombre
+            FROM categorias c
+            WHERE c.id = Contenido.categoria_id
+          )`),
+          "categoria",
+        ],
+        [
+          literal(`(
+            SELECT GROUP_CONCAT(DISTINCT g.nombre SEPARATOR ', ')
+            FROM generos g
+            INNER JOIN Contenido_Generos cg ON g.id = cg.contenido_id
+            WHERE cg.contenido_id = Contenido.id
+          )`),
+          "generos",
+        ],
+        "resumen",
+        "temporadas",
+        [
+          literal(`(
+            SELECT GROUP_CONCAT(a.nombre SEPARATOR ', ')
+            FROM actores a
+            INNER JOIN Contenido_Actores ca ON a.id = ca.actor_ID
+            WHERE ca.contenido_ID = Contenido.id
+          )`),
           "reparto",
         ],
+        "trailer",
       ],
     });
     contenido
