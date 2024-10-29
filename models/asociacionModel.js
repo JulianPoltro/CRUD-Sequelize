@@ -23,8 +23,8 @@ Contenido.belongsToMany(Generos, {
   as: "generos",
 });
 
-Contenido.hasOne(Categoria, {
-  foreignKey: "id",
+Contenido.belongsTo(Categoria, {
+  foreignKey: "categoria_id",
   as: "categoria",
 });
 
