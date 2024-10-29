@@ -5,4 +5,7 @@ GET  http://localhost:3000/
 GET  http://localhost:3000/contenidos
 
 ### Muestra todos los articulos de la lista
-GET  http://localhost:3000/contenidos/1
+GET  http://localhost:3000/contenidos/10
+
+### FIltra por titilo
+GET  http://localhost:3000/contenidos/filter/titulo?titulo=Riverdale

@@ -1,12 +1,12 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const contenidoController = require('../controllers/contenidoController');
+const contenidoController = require("../controllers/contenidoController");
 
 // Routes for CRUD
 //Routes para contenido
-router.get('/', contenidoController.getAllContenido);
-router.get('/:id', contenidoController.getIdContenido);
-
+router.get("/", contenidoController.getAllContenido);
+router.get("/:id", contenidoController.getIdContenido);
+router.get("/filter/titulo", contenidoController.getFindTitulo);
 // router.post('/', (req, res) => {
 //     // Add new content
 // });
@@ -20,4 +20,3 @@ router.get('/:id', contenidoController.getIdContenido);
 // });
 
 module.exports = router;
-    

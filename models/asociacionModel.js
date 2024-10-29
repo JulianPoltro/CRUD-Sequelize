@@ -3,6 +3,7 @@ const Contenido = require("./contenidos");
 // const Categoria = require("./categoria");
 const Actores = require("./actores");
 const Generos = require("./generos");
+const Categoria = require("./categorias");
 const Contenido_Actores = require("./contenidoActores");
 const Contenido_Generos = require("./contenidoGeneros");
 
@@ -12,7 +13,7 @@ Contenido.belongsToMany(Actores, {
   through: Contenido_Actores,
   foreignKey: "contenido_ID",
   otherKey: "actor_ID",
-  as: "actores",
+  as: "reparto",
 });
 
 Contenido.belongsToMany(Generos, {
@@ -22,11 +23,15 @@ Contenido.belongsToMany(Generos, {
   as: "generos",
 });
 
+Contenido.hasOne(Categoria, {
+  foreignKey: "id",
+  as: "categoria",
+});
 
 
 module.exports = {
   Contenido,
   Actores,
-  Generos
-  //   Categoria,
+  Generos,
+  Categoria
 };
