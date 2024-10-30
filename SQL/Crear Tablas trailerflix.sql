@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS Contenido (
     titulo VARCHAR(255) NOT NULL,
     busqueda TEXT,
     resumen TEXT,
-    temporadas VARCHAR(5),
+    temporadas VARCHAR(5) NULL DEFAULT 'N/A',
     trailer VARCHAR(255),
-    categoria_id INT,
+    categoria_id INT NOT NULL,
     duracion INT,
     FOREIGN KEY (categoria_id)
         REFERENCES Categorias (id)
