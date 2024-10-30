@@ -235,7 +235,6 @@ const getFindGenero = async (req, res) => {
       .json({ error: "Error en el servidor", description: error.message });
   }
 };
-
 const postCrearContenido = async (req, res) => {
   const {
     poster,
@@ -290,7 +289,40 @@ const postCrearContenido = async (req, res) => {
       });
     }
 
-    res.status(200).json(newContenido);
+    const contenidoCompleto = await Contenido.findByPk(newContenido.id, {
+      attributes: [
+        "id",
+        "poster",
+        "titulo",
+        "resumen",
+        "temporadas",
+        "trailer",
+        "duracion",
+      ],
+      include: [
+        {
+          model: Categorias,
+          as: "categoria",
+          attributes: ["nombre"],
+        },
+        {
+          model: Generos,
+          as: "generos",
+          attributes: ["nombre"],
+          through: { attributes: [] },
+        },
+        {
+          model: Actores,
+          as: "reparto",
+          attributes: ["nombre"],
+          through: { attributes: [] },
+        },
+      ],
+    });
+
+    res
+      .status(200)
+      .json({ message: "Contenido creado con exito!", contenidoCompleto });
   } catch (error) {
     console.error("Error creando contenido:", error);
     res.status(500).json({ message: "Error creando contenido", error });
