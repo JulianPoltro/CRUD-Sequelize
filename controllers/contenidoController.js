@@ -41,7 +41,7 @@ const getAllContenido = async (req, res) => {
       ],
     });
 
-    contenidos.length > 0
+    contenidos
       ? res.status(200).json(contenidos)
       : res.status(404).json({ error: "No hay contenidos para mostrar" });
   } catch (error) {
@@ -130,7 +130,7 @@ const getFindTitulo = async (req, res) => {
       ],
     });
 
-    contenidos.length > 0
+    contenidos
       ? res.status(200).json(contenidos)
       : res.status(404).json({ error: "No hay contenido con ese titulo" });
   } catch (error) {
@@ -178,7 +178,7 @@ const getFindCategoria = async (req, res) => {
       ],
     });
 
-    contenidos.length > 0
+    contenidos
       ? res.status(200).json(contenidos)
       : res.status(404).json({ error: "No hay contenidos para mostrar" });
   } catch (error) {
@@ -249,9 +249,10 @@ const postCrearContenido = async (req, res) => {
   } = req.body;
 
   if (!titulo || !categoria || !generos || !reparto) {
-    return res
-      .status(400)
-      .json({ message: "Todos los campos obligatorios deben estar completos" });
+    return res.status(400).json({
+      message:
+        "Todos los campos obligatorios deben estar completos - Titulo* Categoria* Genero* Reparto*",
+    });
   }
 
   try {
@@ -259,7 +260,7 @@ const postCrearContenido = async (req, res) => {
       where: { nombre: categoria },
     });
 
-    const newContenido = await Contenido.create({
+    const nuevoContenido = await Contenido.create({
       poster,
       titulo,
       resumen,
@@ -274,7 +275,7 @@ const postCrearContenido = async (req, res) => {
         where: { nombre: nombreActor },
       });
       await contenidoActores.create({
-        contenido_ID: newContenido.id,
+        contenido_ID: nuevoContenido.id,
         actor_ID: actor.id,
       });
     }
@@ -284,12 +285,12 @@ const postCrearContenido = async (req, res) => {
         where: { nombre: nombreGenero },
       });
       await contenidoGeneros.create({
-        contenido_id: newContenido.id,
+        contenido_id: nuevoContenido.id,
         genero_id: genero.id,
       });
     }
 
-    const contenidoCompleto = await Contenido.findByPk(newContenido.id, {
+    const contenidoCompleto = await Contenido.findByPk(nuevoContenido.id, {
       attributes: [
         "id",
         "poster",
@@ -329,6 +330,108 @@ const postCrearContenido = async (req, res) => {
   }
 };
 
+const putActualizarContenido = async (req, res) => {
+  const { id } = req.params;
+  const {
+    poster,
+    titulo,
+    resumen,
+    temporadas,
+    trailer,
+    categoria,
+    duracion,
+    generos,
+    reparto,
+  } = req.body;
+
+  const contenido = await Contenido.findByPk(id);
+  if (!contenido) {
+    return res.status(404).json({ message: "ID del contenido no encontrado" });
+  }
+
+  try {
+    const [buscarCategoria] = await Categorias.findOrCreate({
+      where: { nombre: categoria },
+    });
+
+    await Contenido.update(
+      {
+        poster,
+        titulo,
+        resumen,
+        temporadas,
+        trailer,
+        categoria_id: buscarCategoria.id,
+        duracion,
+      },
+      { where: { id } }
+    );
+
+    await contenidoActores.destroy({ where: { contenido_ID: id } });
+    for (const nombreActor of reparto) {
+      const [actor] = await Actores.findOrCreate({
+        where: { nombre: nombreActor },
+      });
+      await contenidoActores.create({
+        contenido_ID: id,
+        actor_ID: actor.id,
+      });
+    }
+
+    await contenidoGeneros.destroy({ where: { contenido_id: id } });
+    for (const nombreGenero of generos) {
+      const [genero] = await Generos.findOrCreate({
+        where: { nombre: nombreGenero },
+      });
+      await contenidoGeneros.create({
+        contenido_id: id,
+        genero_id: genero.id,
+      });
+    }
+
+    const contenidoActualizadoCompleto = await Contenido.findByPk(id, {
+      attributes: [
+        "id",
+        "poster",
+        "titulo",
+        "resumen",
+        "temporadas",
+        "trailer",
+        "duracion",
+      ],
+      include: [
+        {
+          model: Categorias,
+          as: "categoria",
+          attributes: ["nombre"],
+        },
+        {
+          model: Generos,
+          as: "generos",
+          attributes: ["nombre"],
+          through: { attributes: [] },
+        },
+        {
+          model: Actores,
+          as: "reparto",
+          attributes: ["nombre"],
+          through: { attributes: [] },
+        },
+      ],
+    });
+
+    res.status(200).json({
+      message: "Contenido actualizado con éxito!",
+      contenido: contenidoActualizadoCompleto,
+    });
+  } catch (error) {
+    console.error("Error al actualizar el contenido", error);
+    res
+      .status(500)
+      .json({ message: "Error al actualizar el contenido", error });
+  }
+};
+
 module.exports = {
   getAllContenido,
   getIdContenido,
@@ -336,4 +439,5 @@ module.exports = {
   getFindCategoria,
   getFindGenero,
   postCrearContenido,
+  putActualizarContenido,
 };

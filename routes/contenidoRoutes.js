@@ -10,6 +10,7 @@ router.get("/filter/titulo", contenidoController.getFindTitulo);
 router.get("/filter/categoria", contenidoController.getFindCategoria);
 router.get("/filter/genero", contenidoController.getFindGenero);
 router.post("/", contenidoController.postCrearContenido);
+router.put("/:id", contenidoController.putActualizarContenido);
 
 // router.put('/:id', (req, res) => {
 //     // Update content by ID

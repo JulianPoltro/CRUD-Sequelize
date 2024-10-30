@@ -5,7 +5,7 @@ GET  http://localhost:3000/
 GET  http://localhost:3000/contenidos
 
 ### Muestra el contenido por ID
-GET  http://localhost:3000/contenidos/1
+GET  http://localhost:3000/contenidos/101
 
 ### Filtrar por titilo
 GET  http://localhost:3000/contenidos/filter/titulo?titulo=Alien
@@ -30,4 +30,20 @@ Content-Type: application/json
   "reparto": ["Pedro Pascal", "Denzel Washington"],
   "trailer": "https://www.youtube.com/watch?v=Ts0N8swyWFI",
   "duracion": 180
+}
+
+### Actualiza el contenido por ID
+PUT http://localhost:3000/contenidos/101
+Content-Type: application/json
+
+{
+  "poster": "./posters/101.jpg",
+  "titulo": "The Rings of Power",
+  "categoria": "Serie",
+  "generos": ["Acción", "Fantasía", "Aventura"],
+  "resumen": "Ambientada miles de años antes de los eventos de El Hobbit y El Señor de los Anillos, la serie se basa en la historia de la Tierra Media del autor J. R. R. Tolkien. Comienza durante una época de relativa paz y cubre todos los eventos principales de la Segunda Edad de la Tierra Media: la forja de los Anillos de Poder, el surgimiento del Señor Oscuro Sauron, la historia del reino insular de Númenor y la última alianza entre Elfos y Hombres. Estos eventos tienen lugar durante miles de años en las historias originales de Tolkien, pero se condensan para la serie.",
+  "temporadas": "2",
+  "reparto": ["Morfydd Clark", "Robert Aramayo"],
+  "trailer": "https://www.youtube.com/watch?v=TCwmXY_f-e0",
+  "duracion": 0
 }
