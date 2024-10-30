@@ -26,7 +26,7 @@ Content-Type: application/json
   "categoria": "Película",
   "generos": ["Acción", "drama", "péplum", "aventuras", "cine histórico", "cine épico"],
   "resumen": "Después de ser salvado por Máximo Décimo Meridio en Gladiator, Lucio Vero —en Latín Lucius— el sobrino del emperador Cómodo e hijo de Lucila, ahora es una persona que debe tomar decisiones importantes.",
-  //"temporadas": "N/A",
+  "temporadas": "N/A",
   "reparto": ["Pedro Pascal", "Denzel Washington"],
   "trailer": "https://www.youtube.com/watch?v=Ts0N8swyWFI",
   "duracion": 180

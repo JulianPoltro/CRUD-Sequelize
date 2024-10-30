@@ -255,7 +255,7 @@ const postCrearContenido = async (req, res) => {
   }
 
   try {
-    const [categoriaBuscada] = await Categorias.findOrCreate({
+    const [buscarCategoria] = await Categorias.findOrCreate({
       where: { nombre: categoria },
     });
 
@@ -265,7 +265,7 @@ const postCrearContenido = async (req, res) => {
       resumen,
       temporadas,
       trailer,
-      categoria_id: categoriaBuscada.id,
+      categoria_id: buscarCategoria.id,
       duracion,
     });
 
@@ -321,7 +321,7 @@ const postCrearContenido = async (req, res) => {
     });
 
     res
-      .status(200)
+      .status(201)
       .json({ message: "Contenido creado con exito!", contenidoCompleto });
   } catch (error) {
     console.error("Error creando contenido:", error);
