@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS Generos (
 
 CREATE TABLE IF NOT EXISTS Actores (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(60) NOT NULL,actores
+    nombre VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Contenido (
@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS Contenido (
     temporadas VARCHAR(5),
     trailer VARCHAR(255),
     categoria_id INT,
+    duracion INT,
     FOREIGN KEY (categoria_id)
         REFERENCES Categorias (id)
 );

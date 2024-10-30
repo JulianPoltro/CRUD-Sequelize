@@ -16,6 +16,7 @@ const getAllContenido = async (req, res) => {
         "resumen",
         "temporadas",
         "trailer",
+        "duracion",
       ],
       include: [
         {
@@ -61,6 +62,7 @@ const getIdContenido = async (req, res) => {
         "resumen",
         "temporadas",
         "trailer",
+        "duracion",
       ],
       include: [
         {
@@ -103,6 +105,7 @@ const getFindTitulo = async (req, res) => {
         "resumen",
         "temporadas",
         "trailer",
+        "duracion",
       ],
       include: [
         {
@@ -145,6 +148,7 @@ const getFindCategoria = async (req, res) => {
         "resumen",
         "temporadas",
         "trailer",
+        "duracion",
       ],
       include: [
         {
@@ -192,6 +196,7 @@ const getFindGenero = async (req, res) => {
         "resumen",
         "temporadas",
         "trailer",
+        "duracion",
       ],
       include: [
         {
