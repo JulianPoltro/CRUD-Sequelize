@@ -50,6 +50,8 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
       └── Realizar INSERTS trailerflix.sql      # Realiza los inserts a las tablas creado en base a json
    ```
 
+   ![SQL/db_designer/trailerflix_1.png](https://github.com/JulianPoltro/Trabajo-Integrador-Relacional-Backend-Diplomatura-UNTREF/blob/main/SQL/db_designer/trailerflix_1.png)
+
    - Actualiza el archivo `.env` con tus credenciales:
      ```
       DATABASE = trailerflix
