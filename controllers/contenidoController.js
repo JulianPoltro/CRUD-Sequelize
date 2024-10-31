@@ -343,11 +343,6 @@ const putActualizarContenido = async (req, res) => {
     reparto,
   } = req.body;
 
-  //
-  // if (!contenido) {
-  //   return res.status(404).json({ message: "ID del contenido no encontrado" });
-  // }
-
   try {
     const [buscarCategoria] = await Categorias.findOrCreate({
       where: { nombre: categoria },
