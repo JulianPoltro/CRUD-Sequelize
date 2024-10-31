@@ -28,10 +28,9 @@ Contenido.belongsTo(Categoria, {
   as: "categoria",
 });
 
-
 module.exports = {
   Contenido,
   Actores,
   Generos,
-  Categoria
+  Categoria,
 };

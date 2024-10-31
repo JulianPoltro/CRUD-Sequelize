@@ -3,7 +3,6 @@ const router = express.Router();
 const contenidoController = require("../controllers/contenidoController");
 
 // Routes for CRUD
-//Routes GET para contenido
 router.get("/", contenidoController.getAllContenido);
 router.get("/:id", contenidoController.getIdContenido);
 router.get("/filter/titulo", contenidoController.getFindTitulo);

@@ -21,4 +21,4 @@ const Actores = sequelize.define(
   }
 );
 
-module.exports =  Actores ;
+module.exports = Actores;

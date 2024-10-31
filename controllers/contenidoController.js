@@ -132,7 +132,7 @@ const getFindTitulo = async (req, res) => {
 
     contenidos
       ? res.status(200).json(contenidos)
-      : res.status(404).json({ error: "No hay contenido con ese titulo" });
+      : res.status(404).json({ error: "No existen contenidos con ese titulo" });
   } catch (error) {
     res
       .status(500)
@@ -180,7 +180,9 @@ const getFindCategoria = async (req, res) => {
 
     contenidos
       ? res.status(200).json(contenidos)
-      : res.status(404).json({ error: "No hay contenidos para mostrar" });
+      : res
+          .status(404)
+          .json({ error: "No existen contenidos con esa categoria" });
   } catch (error) {
     res
       .status(500)
@@ -228,7 +230,7 @@ const getFindGenero = async (req, res) => {
 
     contenidos.length > 0
       ? res.status(200).json(contenidos)
-      : res.status(404).json({ error: "No hay contenidos para mostrar" });
+      : res.status(404).json({ error: "No hay contenidos con ese genero" });
   } catch (error) {
     res
       .status(500)
@@ -326,7 +328,9 @@ const postCrearContenido = async (req, res) => {
       .json({ message: "Contenido creado con exito!", contenidoCompleto });
   } catch (error) {
     console.error("Error creando contenido:", error);
-    res.status(500).json({ message: "Error creando contenido", error });
+    res
+      .status(500)
+      .json({ error: "Error en el servidor", description: error.message });
   }
 };
 const putActualizarContenido = async (req, res) => {
@@ -437,7 +441,7 @@ const putActualizarContenido = async (req, res) => {
     console.error("Error al actualizar el contenido", error);
     res
       .status(500)
-      .json({ message: "Error al actualizar el contenido", error });
+      .json({ error: "Error en el servidor", description: error.message });
   }
 };
 const deleteContenido = async (req, res) => {
@@ -459,7 +463,7 @@ const deleteContenido = async (req, res) => {
     console.error("Error al eliminar el contenido", error);
     res
       .status(500)
-      .json({ message: "No se pudo eliminar el Contenido", error });
+      .json({ error: "Error en el servidor", description: error.message });
   }
 };
 

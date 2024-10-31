@@ -30,4 +30,4 @@ const Contenido_Actores = sequelize.define(
   }
 );
 
-module.exports= Contenido_Actores ;
+module.exports = Contenido_Actores;
