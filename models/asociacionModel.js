@@ -1,13 +1,10 @@
-// models/index.js
 const Contenido = require("./contenidos");
-// const Categoria = require("./categoria");
 const Actores = require("./actores");
 const Generos = require("./generos");
 const Categoria = require("./categorias");
 const Contenido_Actores = require("./contenidoActores");
 const Contenido_Generos = require("./contenidoGeneros");
 
-// Definir las asociaciones
 
 Contenido.belongsToMany(Actores, {
   through: Contenido_Actores,
@@ -28,9 +25,41 @@ Contenido.belongsTo(Categoria, {
   as: "categoria",
 });
 
+const contenidoAttributes = [
+  "id",
+  "poster",
+  "titulo",
+  "resumen",
+  "temporadas",
+  "trailer",
+  "duracion",
+];
+
+const contenidoInclude = [
+  {
+    model: Categoria,
+    as: "categoria",
+    attributes: ["nombre"],
+  },
+  {
+    model: Generos,
+    as: "generos",
+    attributes: ["nombre"],
+    through: { attributes: [] },
+  },
+  {
+    model: Actores,
+    as: "reparto",
+    attributes: ["nombre"],
+    through: { attributes: [] },
+  },
+];
+
 module.exports = {
   Contenido,
   Actores,
   Generos,
   Categoria,
+  contenidoAttributes,
+  contenidoInclude,
 };

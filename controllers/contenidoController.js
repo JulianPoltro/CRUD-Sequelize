@@ -1,6 +1,10 @@
 const { Op, fn, col, literal } = require("sequelize");
 const { sequelize } = require("../conexion/database");
-const AsociacionModel = require("../models/asociacionModel");
+const {
+  AsociacionModel,
+  contenidoAttributes,
+  contenidoInclude,
+} = require("../models/asociacionModel");
 const Contenido = require("../models/contenidos");
 const Categorias = require("../models/categorias");
 const Generos = require("../models/generos");
@@ -11,34 +15,8 @@ const contenidoGeneros = require("../models/contenidoGeneros");
 const getAllContenido = async (req, res) => {
   try {
     const contenidos = await Contenido.findAll({
-      attributes: [
-        "id",
-        "poster",
-        "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
-        "duracion",
-      ],
-      include: [
-        {
-          model: Categorias,
-          as: "categoria",
-          attributes: ["nombre"],
-        },
-        {
-          model: Generos,
-          as: "generos",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-        {
-          model: Actores,
-          as: "reparto",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-      ],
+      attributes: contenidoAttributes,
+      include: contenidoInclude,
     });
 
     contenidos
@@ -57,34 +35,8 @@ const getIdContenido = async (req, res) => {
       return res.status(400).json({ error: "ID de contenido inválido" });
     }
     const contenido = await Contenido.findByPk(contenidoID, {
-      attributes: [
-        "id",
-        "poster",
-        "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
-        "duracion",
-      ],
-      include: [
-        {
-          model: Categorias,
-          as: "categoria",
-          attributes: ["nombre"],
-        },
-        {
-          model: Generos,
-          as: "generos",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-        {
-          model: Actores,
-          as: "reparto",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-      ],
+      attributes: contenidoAttributes,
+      include: contenidoInclude,
     });
     contenido
       ? res.status(200).json(contenido)
@@ -100,34 +52,8 @@ const getFindTitulo = async (req, res) => {
   try {
     const contenidos = await Contenido.findAll({
       where: { titulo: { [Op.like]: `%${titulo}%` } },
-      attributes: [
-        "id",
-        "poster",
-        "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
-        "duracion",
-      ],
-      include: [
-        {
-          model: Categorias,
-          as: "categoria",
-          attributes: ["nombre"],
-        },
-        {
-          model: Generos,
-          as: "generos",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-        {
-          model: Actores,
-          as: "reparto",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-      ],
+      attributes: contenidoAttributes,
+      include: contenidoInclude,
     });
 
     contenidos
@@ -143,16 +69,9 @@ const getFindCategoria = async (req, res) => {
   const { categoria } = req.query;
   try {
     const contenidos = await Contenido.findAll({
-      attributes: [
-        "id",
-        "poster",
-        "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
-        "duracion",
-      ],
+      attributes: contenidoAttributes,
       include: [
+        ...contenidoInclude,
         {
           model: Categorias,
           as: "categoria",
@@ -162,18 +81,6 @@ const getFindCategoria = async (req, res) => {
               [Op.like]: `%${categoria}%`,
             },
           },
-        },
-        {
-          model: Generos,
-          as: "generos",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-        {
-          model: Actores,
-          as: "reparto",
-          attributes: ["nombre"],
-          through: { attributes: [] },
         },
       ],
     });
@@ -193,21 +100,9 @@ const getFindGenero = async (req, res) => {
   const { genero } = req.query;
   try {
     const contenidos = await Contenido.findAll({
-      attributes: [
-        "id",
-        "poster",
-        "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
-        "duracion",
-      ],
+      attributes: contenidoAttributes,
       include: [
-        {
-          model: Categorias,
-          as: "categoria",
-          attributes: ["nombre"],
-        },
+        ...contenidoInclude,
         {
           model: Generos,
           as: "generos",
@@ -218,12 +113,6 @@ const getFindGenero = async (req, res) => {
               [Op.like]: `%${genero}%`,
             },
           },
-        },
-        {
-          model: Actores,
-          as: "reparto",
-          attributes: ["nombre"],
-          through: { attributes: [] },
         },
       ],
     });
@@ -293,34 +182,8 @@ const postCrearContenido = async (req, res) => {
     }
 
     const contenidoCompleto = await Contenido.findByPk(nuevoContenido.id, {
-      attributes: [
-        "id",
-        "poster",
-        "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
-        "duracion",
-      ],
-      include: [
-        {
-          model: Categorias,
-          as: "categoria",
-          attributes: ["nombre"],
-        },
-        {
-          model: Generos,
-          as: "generos",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-        {
-          model: Actores,
-          as: "reparto",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-      ],
+      attributes: contenidoAttributes,
+      include: contenidoInclude,
     });
 
     res
@@ -403,34 +266,8 @@ const putActualizarContenido = async (req, res) => {
     }
 
     const contenidoActualizadoCompleto = await Contenido.findByPk(id, {
-      attributes: [
-        "id",
-        "poster",
-        "titulo",
-        "resumen",
-        "temporadas",
-        "trailer",
-        "duracion",
-      ],
-      include: [
-        {
-          model: Categorias,
-          as: "categoria",
-          attributes: ["nombre"],
-        },
-        {
-          model: Generos,
-          as: "generos",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-        {
-          model: Actores,
-          as: "reparto",
-          attributes: ["nombre"],
-          through: { attributes: [] },
-        },
-      ],
+      attributes: contenidoAttributes,
+      include: contenidoInclude,
     });
 
     res.status(200).json({

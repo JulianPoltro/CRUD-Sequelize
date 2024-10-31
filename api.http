@@ -11,7 +11,7 @@ GET  http://localhost:3000/contenidos/101
 GET  http://localhost:3000/contenidos/filter/titulo?titulo=Alien
 
 ### Filtrar contenido por categoria
-GET http://localhost:3000/contenidos/filter/categoria?categoria=peli
+GET http://localhost:3000/contenidos/filter/categoria?categoria=ser
 
 ### Filtrar contenido por genero
 GET http://localhost:3000/contenidos/filter/genero?genero=Sci
