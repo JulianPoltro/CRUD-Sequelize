@@ -47,3 +47,6 @@ Content-Type: application/json
   "trailer": "https://www.youtube.com/watch?v=TCwmXY_f-e0",
   "duracion": 0
 }
+
+### Elimina el contenido por ID
+DELETE  http://localhost:3000/contenidos/101

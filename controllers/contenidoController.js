@@ -329,7 +329,6 @@ const postCrearContenido = async (req, res) => {
     res.status(500).json({ message: "Error creando contenido", error });
   }
 };
-
 const putActualizarContenido = async (req, res) => {
   const { id } = req.params;
   const {
@@ -431,6 +430,28 @@ const putActualizarContenido = async (req, res) => {
       .json({ message: "Error al actualizar el contenido", error });
   }
 };
+const deleteContenido = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const existeContenido = await Contenido.findByPk(id);
+    if (!existeContenido) {
+      return res
+        .status(404)
+        .json({ message: "Contenido no encontrado o ya eliminado" });
+    }
+
+    await contenidoActores.destroy({ where: { contenido_ID: id } });
+    await contenidoGeneros.destroy({ where: { contenido_id: id } });
+    await Contenido.destroy({ where: { id: id } });
+
+    res.status(200).json({ message: "Contenido eliminado con exito!" });
+  } catch (error) {
+    console.error("Error al eliminar el contenido", error);
+    res
+      .status(500)
+      .json({ message: "No se pudo eliminar el Contenido", error });
+  }
+};
 
 module.exports = {
   getAllContenido,
@@ -440,4 +461,5 @@ module.exports = {
   getFindGenero,
   postCrearContenido,
   putActualizarContenido,
+  deleteContenido,
 };
