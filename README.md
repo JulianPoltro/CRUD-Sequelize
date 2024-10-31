@@ -4,56 +4,6 @@
 
 En este proyecto, desarrollarás una plataforma de streaming usando Node.js y MySQL. La aplicación permitirá realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre una base de datos relacional, utilizando el archivo trailerflix.json como referencia para diseñar el modelo de datos.
 
-
-
-## Pasos a Seguir
-1. **Diseñar el modelo de datos** basado en trailerflix.json.
-2. **Implementar las tablas** en DB Designer, asegurando que haya relaciones adecuadas entre ellas.
-3. **Generar el archivo SQL** para crear las tablas en MySQL.
-4. **Migrar los datos** del archivo JSON a MySQL utilizando los insert correspondientes.
-
-## Funcionalidades del CRUD
-
-1. **Obtener todos los contenidos**
-   - Endpoint que devuelve todos los contenidos de la base de datos.
-   - Control de errores para manejar la indisponibilidad de la base de datos.
-
-2. **Obtener un contenido por ID**
-   - Endpoint para obtener un contenido específico.
-   - Control de errores para manejar casos en que el contenido no exista.
-
-3. **Filtrar contenidos**
-   - Endpoint para filtrar por título, género o categoría.
-   - Control de errores para manejar coincidencias no encontradas o problemas de conexión.
-
-4. **Agregar un nuevo contenido**
-   - Endpoint para agregar una nueva pelicula o serie a la base de datos.
-   - Validación de campos obligatorios.
-
-5. **Actualizar un contenido:**
-   - Endpoint para actualizar información como temporadas o reparto.
-   - Control de errores para manejar actualizaciones fallidas.
-     
-6. **Eliminar un contenido**
-   - Endpoint para eliminar un contenido de la base de datos.
-   - Control de errores para manejar problemas durante el borrado.
-
-7. **Control de errores**
-   - Manejo de errores en la estructura de las solicitudes y respuestas.
-   - Respuesta adecuada con mensajes y códigos de error específicos.
-   - Control de acceso a rutas no existentes con respuestas apropiadas.
-  
-## Herramientas Sugeridas
-Utiliza una **I.A.** como sugerimos en clase para optimizar la inserción de los datos del JSON a la base de datos. Esto puede ayudarte a transformar el archivo *trailerflix.json* en un formato que sea más fácil de insertar en MySQL.
-
-## Fechas Importantes
-
-- **Avance del Proyecto**: 10 de octubre de 2024
-  - Tener diseñadas las tablas en DB Designer, con el archivo SQL generado y los primeros endpoints funcionando.
-
-- **Presentación Final**: 24 de octubre de 2024
-  - Proyecto completo con CRUD y toda la documentación.
-
 ## Estructura del Repositorio
 
 ```plaintext
@@ -84,30 +34,8 @@ Utiliza una **I.A.** como sugerimos en clase para optimizar la inserción de los
 - **/routes/**: Definición de las rutas y endpoints del CRUD.
 
 ## Instrucciones de Entrega
-
-1. **Fork** el repositorio desde [aquí](https://github.com/FabioDrizZt/Trabajo-Integrador-Relacional-Backend-Diplomatura-UNTREF/fork).
-2. **Clona** tu fork en tu máquina local.
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio-fork.git
-   ```
-3. Realiza los cambios y sube tu código a tu fork.
-4. **Sube** los cambios a tu fork.
-   ```bash
-   git add .
-   git commit -m "Descripción de los cambios"
-   git push origin main
-   ```
-
 5. Agrega a los siguientes usuarios como colaboradores en tu repositorio:
    - [FabioDrizZt](https://github.com/FabioDrizZt)
    - [JuanNebbia](https://github.com/JuanNebbia)
    - [NKrein](https://github.com/NKrein)
    - [mathiasbarbosa](https://github.com/mathiasbarbosa)
-
-## Conclusión
-
-Este proyecto te permitirá aplicar conceptos clave de desarrollo backend, diseño de bases de datos y documentación. ¡Adelanta los pasos y recuerda mantener tu código limpio y bien documentado!
-
----
-
-Recuerda mantener tu código limpio, documentado y seguir las buenas prácticas de desarrollo. ¡Nos vemos en clase para revisar tu progreso el 10 de octubre de 2024!
