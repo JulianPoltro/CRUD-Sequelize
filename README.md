@@ -15,10 +15,9 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 
 ## Características
 
-- CRUD completo para gestionar la plataforma TrailerFlix, categorías, géneros y reparto.
+- CRUD completo para gestionar la plataforma TrailerFlix.
 - Integración de una base de datos relacional MySQL.
-- Funcionalidad para agregar, actualizar y eliminar asociaciones de contenido con actores y géneros.
-- Búsqueda de contenidos por categoría y otros atributos.
+- Funcionalidad para Crear, Buscar, Actualizar y Eliminar asociaciones de contenido con actores, géneros y categorias.
 
 ## Requisitos previos
 
@@ -72,11 +71,11 @@ El servidor se ejecutará en `http://localhost:3000`.
 ## Estructura del Proyecto
 
 ```plaintext
-├── controllers/           # Lógica de negocio para cada modelo
+├── controllers/           # Controladores con la logica del proyecto para manejar los EndPonits
 ├── models/                # Modelos de la base de datos (Contenido, Actores, Categorias, Generos)
 ├── routes/                # Definición de las rutas de la API
-├── SQL/                # Configuración de la base de datos y otros servicios
-└── app.js                 # Punto de entrada de la aplicación
+├── SQL/                   # Configuración de la base de datos
+└── app.js                 # Ejecucion del servidos e inicio de la app
 ```
 
 ## Endpoints de la API
