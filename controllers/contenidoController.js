@@ -343,18 +343,36 @@ const putActualizarContenido = async (req, res) => {
     reparto,
   } = req.body;
 
-  const contenido = await Contenido.findByPk(id);
-  if (!contenido) {
-    return res.status(404).json({ message: "ID del contenido no encontrado" });
-  }
+  //
+  // if (!contenido) {
+  //   return res.status(404).json({ message: "ID del contenido no encontrado" });
+  // }
 
   try {
     const [buscarCategoria] = await Categorias.findOrCreate({
       where: { nombre: categoria },
     });
 
-    await Contenido.update(
-      {
+    let contenido = await Contenido.findByPk(id);
+    if (contenido) {
+      await Contenido.update(
+        {
+          poster,
+          titulo,
+          resumen,
+          temporadas,
+          trailer,
+          categoria_id: buscarCategoria.id,
+          duracion,
+        },
+        { where: { id } }
+      );
+
+      await contenidoActores.destroy({ where: { contenido_ID: id } });
+      await contenidoGeneros.destroy({ where: { contenido_id: id } });
+    } else {
+      contenido = await Contenido.create({
+        id,
         poster,
         titulo,
         resumen,
@@ -362,11 +380,9 @@ const putActualizarContenido = async (req, res) => {
         trailer,
         categoria_id: buscarCategoria.id,
         duracion,
-      },
-      { where: { id } }
-    );
+      });
+    }
 
-    await contenidoActores.destroy({ where: { contenido_ID: id } });
     for (const nombreActor of reparto) {
       const [actor] = await Actores.findOrCreate({
         where: { nombre: nombreActor },
@@ -377,7 +393,6 @@ const putActualizarContenido = async (req, res) => {
       });
     }
 
-    await contenidoGeneros.destroy({ where: { contenido_id: id } });
     for (const nombreGenero of generos) {
       const [genero] = await Generos.findOrCreate({
         where: { nombre: nombreGenero },
