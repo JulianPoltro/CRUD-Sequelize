@@ -12,7 +12,6 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 - [Ejecución](#ejecución)
 - [Estructura del proyecto](#estructura-del-proyecto)
 - [Endpoints de la API](#endpoints-de-la-api)
-- [Contribuciones](#contribuciones)
 
 ## Características
 
