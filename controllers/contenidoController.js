@@ -1,4 +1,4 @@
-const { Op, fn, col, literal } = require("sequelize");
+const { Op, fn, col } = require("sequelize");
 const { sequelize } = require("../conexion/database");
 const {
   AsociacionModel,

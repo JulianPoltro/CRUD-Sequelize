@@ -4,24 +4,7 @@
 
 En este proyecto, desarrollarás una plataforma de streaming usando Node.js y MySQL. La aplicación permitirá realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre una base de datos relacional, utilizando el archivo trailerflix.json como referencia para diseñar el modelo de datos.
 
-## Entrega
-Esta entrega se enfocará en diseñar y crear la base de datos para una plataforma de streaming, usando MySQL y Node.js, junto con su respectiva documentación.
 
-Aprovecha lo visto en las clases para comenzar a diseñar las tablas y relaciones necesarias, las cuales deberán estar basadas en las propiedades del archivo trailerflix.json.
-
-## Dataset Proporcionados
-
-- **trailerflix.json**: Contiene información detallada sobre contenido de la plataforma, como películas y series. Deberás utilizar este archivo como base para diseñar el modelo de datos.
-
-## Modelo de Base de Datos
-El archivo trailerflix.json incluye propiedades como ID, título, categorías, géneros, resumen, temporadas, reparto y enlaces a trailers. Basado en esta estructura, debes diseñar una base de datos llamada trailerflix con al menos 6 tablas relacionales. Entre ellas:
-
-- **contenido**: Tabla principal con la información de películas y series.
-- **categorías**: Definirá si el contenido es una película o una serie.
-- **géneros**: Almacenará los géneros como Ciencia Ficción, Fantasía, etc.
-- **actores**: Información sobre los actores principales de cada contenido.
-- **tabla intermedia contenido-actores**: Relacionará el contenido con los actores.
-El diseño debe ser bocetado primero en papel y luego implementado en la plataforma **DB Designer** sugerida en clase. Debes generar un archivo SQL de exportación que podrás usar para crear las tablas en MySQL.
 
 ## Pasos a Seguir
 1. **Diseñar el modelo de datos** basado en trailerflix.json.
