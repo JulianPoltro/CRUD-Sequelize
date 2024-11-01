@@ -1,3 +1,4 @@
+
 const { Op, fn, col } = require("sequelize");
 const { sequelize } = require("../conexion/database");
 const {
