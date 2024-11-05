@@ -4,6 +4,8 @@
 
 Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y **MySQL**, que permite realizar operaciones CRUD (Crear, Leer, Actualizar y Eliminar) sobre una base de datos relacional. La aplicación ofrece una estructura para manejar **contenidos**, **categorías**, **actores**, y **géneros**, ideal para gestionar una biblioteca multimedia.
 
+En este
+
 ## Contenidos
 
 - [Características](#características)
@@ -37,8 +39,15 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 2. **Instala las dependencias**:
 
    ```bash
-   npm install express sequelize mysql2 dotenv cross-env
+   npm i express sequelize mysql2 dotenv cross-env swagger-ui-express
    ```
+
+   - express: Framework web para Node.js, usado para manejar rutas y servidores HTTP.
+   - sequelize: ORM (Object-Relational Mapping) que facilita la interacción con bases de datos SQL.
+   - mysql2: Cliente MySQL para Node.js, necesario para que Sequelize se conecte a una base de datos MySQL.
+   - dotenv: Para gestionar variables de entorno, como claves de API o credenciales de base de datos.
+   - cross-env: Utilizado para establecer variables de entorno de manera consistente entre plataformas (Windows, Linux, macOS).
+   - swagger-ui-express: Middleware para integrar Swagger UI y documentar las APIs de forma visual.
 
 3. **Configura la base de datos**:
 
