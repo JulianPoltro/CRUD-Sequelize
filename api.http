@@ -5,7 +5,7 @@ GET  http://localhost:3000/
 GET  http://localhost:3000/contenidos
 
 ### Muestra el contenido por ID
-GET  http://localhost:3000/contenidos/101
+GET  http://localhost:3000/contenidos/90
 
 ### Filtrar por titilo
 GET  http://localhost:3000/contenidos/filter/titulo?titulo=Alien

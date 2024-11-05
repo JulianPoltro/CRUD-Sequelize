@@ -3,6 +3,7 @@ const contenidoRoutes = require("./routes/contenidoRoutes");
 const app = express();
 const db = require("./conexion/database");
 
+
 // Middlewares
 app.use(express.json());
 //autenticacion base de datos
