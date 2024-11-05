@@ -37,7 +37,7 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 2. **Instala las dependencias**:
 
    ```bash
-   npm install express sequelize mysql2
+   npm install express sequelize mysql2 dotenv cross-env
    ```
 
 3. **Configura la base de datos**:
@@ -46,13 +46,13 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 
    ```plaintext
       SQL/
-      ├── Crear Tablas trailerflix.sql          # Archivo SQL para crear las tablas necesarias
-      └── Realizar INSERTS trailerflix.sql      # Realiza los inserts a las tablas creado en base a json
+      ├── Crear Tablas trailerflix.sql          # Archivo SQL para crear el schema necesario
+      └── Realizar INSERTS trailerflix.sql      # Realiza los inserts a las tablas creado en base al json proporcionado 
    ```
 
-   ![SQL/db_designer/trailerflix_1.png](https://github.com/JulianPoltro/Trabajo-Integrador-Relacional-Backend-Diplomatura-UNTREF/blob/main/SQL/db_designer/trailerflix_1.png)
+   ![SQL/db_designer/trailerflix_1.png](https://github.com/JulianPoltro/CRUD-Sequelize/blob/main/SQL/db_designer/trailerflix_1.png)
 
-   - Actualiza el archivo `.env` con tus credenciales:
+   - Actualiza o Crea el archivo `.env` con tus credenciales:
      ```
       DATABASE = trailerflix
       DBUSER = USER
@@ -65,10 +65,12 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 Inicia la aplicación en modo de desarrollo:
 
 ```bash
-npm run dev
+npm start
 ```
 
 El servidor se ejecutará en `http://localhost:3000`.
+
+Puedas instalar la extension REST Client para hacer las solicitudes HTPP desde el archivo api.http desde VS Code
 
 ## Estructura del Proyecto
 
