@@ -6,32 +6,11 @@ const contenidoController = require("../controllers/contenidoController");
  * @swagger
  * /contenidos:
  *   get:
- *     summary: Obtiene todos los contenidos
- *     description: Esta ruta devuelve una lista de todos los contenidos disponibles en la base de datos.
+ *     summary: Muestra todo el contenido
+ *     description: Devuelve una lista de todos los contenidos disponibles en la base de datos.
  *     responses:
  *       200:
  *         description: Lista de contenidos obtenida exitosamente
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   titulo:
- *                     type: string
- *                   resumen:
- *                     type: string
- *                   temporadas:
- *                     type: integer
- *                   trailer:
- *                     type: string
- *                   categoria_id:
- *                     type: integer
- *                   duracion:
- *                     type: string
  *       404:
  *         description: No hay contenidos para mostrar
  *       500:
@@ -43,8 +22,8 @@ router.get("/", contenidoController.getAllContenido);
  * @swagger
  * /contenidos/{id}:
  *   get:
- *     summary: Obtiene un contenido por su ID
- *     description: Esta ruta devuelve el contenido correspondiente al ID proporcionado.
+ *     summary: Muestra el contenido por ID
+ *     description: Devuelve el contenido específico basado en el ID proporcionado.
  *     parameters:
  *       - in: path
  *         name: id
@@ -55,25 +34,6 @@ router.get("/", contenidoController.getAllContenido);
  *     responses:
  *       200:
  *         description: Contenido obtenido exitosamente
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                 titulo:
- *                   type: string
- *                 resumen:
- *                   type: string
- *                 temporadas:
- *                   type: integer
- *                 trailer:
- *                   type: string
- *                 categoria_id:
- *                   type: integer
- *                 duracion:
- *                   type: string
  *       404:
  *         description: Contenido no encontrado
  *       400:
@@ -87,8 +47,8 @@ router.get("/:id", contenidoController.getIdContenido);
  * @swagger
  * /contenidos/filter/titulo:
  *   get:
- *     summary: Filtra los contenidos por título
- *     description: Esta ruta permite buscar contenidos que coincidan con el título proporcionado.
+ *     summary: Filtra contenidos por título
+ *     description: Busca y devuelve contenidos que coincidan con el título proporcionado.
  *     parameters:
  *       - in: query
  *         name: titulo
@@ -98,24 +58,7 @@ router.get("/:id", contenidoController.getIdContenido);
  *           type: string
  *     responses:
  *       200:
- *         description: Contenido(s) con el título proporcionado encontrados
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   titulo:
- *                     type: string
- *                   categoria_id:
- *                     type: integer
- *                   resumen:
- *                     type: string
- *                   duracion:
- *                     type: string
+ *         description: Contenidos con el título proporcionado encontrados
  *       404:
  *         description: No existen contenidos con ese título
  *       400:
@@ -129,8 +72,8 @@ router.get("/filter/titulo", contenidoController.getFindTitulo);
  * @swagger
  * /contenidos/filter/categoria:
  *   get:
- *     summary: Filtra los contenidos por categoría
- *     description: Esta ruta permite buscar contenidos por categoría.
+ *     summary: Filtra contenidos por categoría
+ *     description: Busca y devuelve contenidos que coincidan con la categoría proporcionada.
  *     parameters:
  *       - in: query
  *         name: categoria
@@ -140,24 +83,7 @@ router.get("/filter/titulo", contenidoController.getFindTitulo);
  *           type: string
  *     responses:
  *       200:
- *         description: Contenido(s) con la categoría proporcionada encontrados
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   titulo:
- *                     type: string
- *                   categoria_id:
- *                     type: integer
- *                   resumen:
- *                     type: string
- *                   duracion:
- *                     type: string
+ *         description: Contenidos con la categoría proporcionada encontrados
  *       404:
  *         description: No existen contenidos con esa categoría
  *       400:
@@ -171,8 +97,8 @@ router.get("/filter/categoria", contenidoController.getFindCategoria);
  * @swagger
  * /contenidos/filter/genero:
  *   get:
- *     summary: Filtra los contenidos por género
- *     description: Esta ruta permite buscar contenidos que coincidan con el género proporcionado.
+ *     summary: Filtra contenidos por género
+ *     description: Busca y devuelve contenidos que coincidan con el género proporcionado.
  *     parameters:
  *       - in: query
  *         name: genero
@@ -182,24 +108,7 @@ router.get("/filter/categoria", contenidoController.getFindCategoria);
  *           type: string
  *     responses:
  *       200:
- *         description: Contenido(s) con el género proporcionado encontrados
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   titulo:
- *                     type: string
- *                   categoria_id:
- *                     type: integer
- *                   resumen:
- *                     type: string
- *                   duracion:
- *                     type: string
+ *         description: Contenidos con el género proporcionado encontrados
  *       404:
  *         description: No hay contenidos con ese género
  *       400:
@@ -214,7 +123,7 @@ router.get("/filter/genero", contenidoController.getFindGenero);
  * /contenidos:
  *   post:
  *     summary: Crea un nuevo contenido
- *     description: Esta ruta permite crear un nuevo contenido en la base de datos.
+ *     description: Permite crear un nuevo contenido en la base de datos.
  *     requestBody:
  *       required: true
  *       content:
@@ -226,46 +135,27 @@ router.get("/filter/genero", contenidoController.getFindGenero);
  *                 type: string
  *               titulo:
  *                 type: string
- *               resumen:
- *                 type: string
- *               temporadas:
- *                 type: integer
- *               trailer:
- *                 type: string
  *               categoria:
- *                 type: string
- *               duracion:
  *                 type: string
  *               generos:
  *                 type: array
  *                 items:
  *                   type: string
+ *               resumen:
+ *                 type: string
+ *               temporadas:
+ *                 type: string
  *               reparto:
  *                 type: array
  *                 items:
  *                   type: string
+ *               trailer:
+ *                 type: string
+ *               duracion:
+ *                 type: integer
  *     responses:
  *       201:
  *         description: Contenido creado exitosamente
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 id:
- *                   type: integer
- *                 titulo:
- *                   type: string
- *                 resumen:
- *                   type: string
- *                 temporada:
- *                   type: integer
- *                 trailer:
- *                   type: string
- *                 categoria_id:
- *                   type: integer
- *                 duracion:
- *                   type: string
  *       400:
  *         description: Campos obligatorios no proporcionados
  *       500:
@@ -275,10 +165,10 @@ router.post("/", contenidoController.postCrearContenido);
 
 /**
  * @swagger
- * /contenidos/{id}:
+ /contenidos/{id}:
  *   put:
  *     summary: Actualiza un contenido existente
- *     description: Actualiza los detalles de un contenido por su ID.
+ *     description: Permite actualizar los detalles de un contenido por su ID.
  *     parameters:
  *       - in: path
  *         name: id
@@ -297,24 +187,24 @@ router.post("/", contenidoController.postCrearContenido);
  *                 type: string
  *               titulo:
  *                 type: string
- *               resumen:
- *                 type: string
- *               temporadas:
- *                 type: integer
- *               trailer:
- *                 type: string
  *               categoria:
- *                 type: string
- *               duracion:
  *                 type: string
  *               generos:
  *                 type: array
  *                 items:
  *                   type: string
+ *               resumen:
+ *                 type: string
+ *               temporadas:
+ *                 type: string
  *               reparto:
  *                 type: array
  *                 items:
  *                   type: string
+ *               trailer:
+ *                 type: string
+ *               duracion:
+ *                 type: integer
  *     responses:
  *       200:
  *         description: Contenido actualizado exitosamente
@@ -330,7 +220,7 @@ router.put("/:id", contenidoController.putActualizarContenido);
  * /contenidos/{id}:
  *   delete:
  *     summary: Elimina un contenido por su ID
- *     description: Elimina el contenido con el ID proporcionado de la base de datos.
+ *     description: Permite eliminar un contenido en la base de datos basado en el ID proporcionado.
  *     parameters:
  *       - in: path
  *         name: id
