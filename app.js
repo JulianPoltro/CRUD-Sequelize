@@ -2,6 +2,7 @@ const express = require("express");
 const contenidoRoutes = require("./routes/contenidoRoutes");
 const app = express();
 const db = require("./conexion/database");
+const { swaggerUi, swaggerDocs } = require('./config/swaggerConfig')
 
 
 // Middlewares
@@ -19,6 +20,10 @@ app.use(async (req, res, next) => {
   }
 });
 
+// Swagger Config
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
+
+// Routes
 app.use("/contenidos", contenidoRoutes);
 
 //Pagina principal
@@ -29,5 +34,5 @@ app.get("/", (req, res) => {
 // Server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
