@@ -4,7 +4,7 @@ const Contenido = require("./contenidos");
 const Genero = require("./generos");
 
 const Contenido_Generos = sequelize.define(
-  "Contenido_Generos",
+  "contenido_generos",
   {
     contenido_id: {
       type: DataTypes.INTEGER,
@@ -24,7 +24,7 @@ const Contenido_Generos = sequelize.define(
     },
   },
   {
-    tableName: "Contenido_Generos",
+    tableName: "contenido_generos",
     timestamps: false,
   }
 );

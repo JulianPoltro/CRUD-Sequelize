@@ -5,7 +5,7 @@ const Contenido = require("./contenidos");
 const Actores = require("./actores");
 
 const Contenido_Actores = sequelize.define(
-  "Contenido_Actores",
+  "contenido_actores",
   {
     contenido_ID: {
       type: DataTypes.INTEGER,
@@ -25,7 +25,7 @@ const Contenido_Actores = sequelize.define(
     },
   },
   {
-    tableName: "Contenido_Actores",
+    tableName: "contenido_actores",
     timestamps: false,
   }
 );

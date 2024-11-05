@@ -3,7 +3,7 @@ const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
 
 const Actores = sequelize.define(
-  "Actores",
+  "actores",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,7 +16,7 @@ const Actores = sequelize.define(
     },
   },
   {
-    tableName: "Actores",
+    tableName: "actores",
     timestamps: false,
   }
 );

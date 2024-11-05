@@ -3,7 +3,7 @@ const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
 
 const Contenido = sequelize.define(
-  "Contenido",
+  "contenido",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -33,7 +33,7 @@ const Contenido = sequelize.define(
     categoria_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Categorias",
+        model: "categorias",
         key: "id",
       },
       allowNull: false,
@@ -44,7 +44,7 @@ const Contenido = sequelize.define(
     },
   },
   {
-    tableName: "Contenido",
+    tableName: "contenido",
     timestamps: false,
   }
 );

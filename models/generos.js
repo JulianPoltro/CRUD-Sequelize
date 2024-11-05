@@ -3,7 +3,7 @@ const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
 
 const Generos = sequelize.define(
-  "Generos",
+  "generos",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,7 +16,7 @@ const Generos = sequelize.define(
     },
   },
   {
-    tableName: "Generos",
+    tableName: "generos",
     timestamps: false,
   }
 );

@@ -3,7 +3,7 @@ const { sequelize } = require("../conexion/database");
 const { DataTypes } = require("sequelize");
 
 const Categorias = sequelize.define(
-  "Categorias",
+  "categorias",
   {
     id: {
       type: DataTypes.INTEGER,
@@ -16,7 +16,7 @@ const Categorias = sequelize.define(
     },
   },
   {
-    tableName: "Categorias",
+    tableName: "categorias",
     timestamps: false,
   }
 );
