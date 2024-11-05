@@ -39,7 +39,7 @@ En este
 2. **Instala las dependencias**:
 
    ```bash
-   npm i express sequelize mysql2 dotenv cross-env swagger-ui-express
+   npm i express sequelize mysql2 dotenv cross-env swagger-ui-express swagger-jsdoc
    ```
 
    - express: Framework web para Node.js, usado para manejar rutas y servidores HTTP.
@@ -48,6 +48,7 @@ En este
    - dotenv: Para gestionar variables de entorno, como claves de API o credenciales de base de datos.
    - cross-env: Utilizado para establecer variables de entorno de manera consistente entre plataformas (Windows, Linux, macOS).
    - swagger-ui-express: Middleware para integrar Swagger UI y documentar las APIs de forma visual.
+   - swagger-jsdoc: Utilizado para generar la especificación Swagger (en formato JSON) a partir de comentarios en el código fuente.
 
 3. **Configura la base de datos**:
 
