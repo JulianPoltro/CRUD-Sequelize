@@ -37,7 +37,7 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 2. **Instala las dependencias**:
 
    ```bash
-   npm install express sequelize mysql2 dotenv
+   npm install express sequelize mysql2 dotenv cross-env
    ```
 
 3. **Configura la base de datos**:
