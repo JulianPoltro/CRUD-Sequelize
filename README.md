@@ -70,6 +70,8 @@ npm run dev
 
 El servidor se ejecutará en `http://localhost:3000`.
 
+Puedas instalar la extension REST Client para hacer las solicitudes HTPP desde el archivo api.http desde VS Code
+
 ## Estructura del Proyecto
 
 ```plaintext
