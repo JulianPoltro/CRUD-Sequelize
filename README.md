@@ -30,8 +30,8 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 1. **Clona el repositorio**:
 
    ```bash
-   git clone https://github.com/JulianPoltro/Trabajo-Integrador-Relacional-Backend-Diplomatura-UNTREF.git
-   cd Trabajo-Integrador-Relacional-Backend-Diplomatura-UNTREF
+   git clone https://github.com/JulianPoltro/CRUD-Sequelize.git
+   cd CRUD-Sequelize
    ```
 
 2. **Instala las dependencias**:
