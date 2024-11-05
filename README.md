@@ -46,13 +46,13 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 
    ```plaintext
       SQL/
-      ├── Crear Tablas trailerflix.sql          # Archivo SQL para crear las tablas necesarias
-      └── Realizar INSERTS trailerflix.sql      # Realiza los inserts a las tablas creado en base a json
+      ├── Crear Tablas trailerflix.sql          # Archivo SQL para crear el schema necesario
+      └── Realizar INSERTS trailerflix.sql      # Realiza los inserts a las tablas creado en base al json proporcionado 
    ```
 
    ![SQL/db_designer/trailerflix_1.png](https://github.com/JulianPoltro/Trabajo-Integrador-Relacional-Backend-Diplomatura-UNTREF/blob/main/SQL/db_designer/trailerflix_1.png)
 
-   - Actualiza el archivo `.env` con tus credenciales:
+   - Actualiza o Crea el archivo `.env` con tus credenciales:
      ```
       DATABASE = trailerflix
       DBUSER = USER
@@ -65,7 +65,7 @@ Este proyecto es una **plataforma de streaming** desarrollada con **Node.js** y 
 Inicia la aplicación en modo de desarrollo:
 
 ```bash
-npm run dev
+npm start
 ```
 
 El servidor se ejecutará en `http://localhost:3000`.
