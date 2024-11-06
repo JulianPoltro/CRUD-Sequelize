@@ -33,11 +33,11 @@ Content-Type: application/json
 }
 
 ### Actualiza el contenido por ID
-PUT http://localhost:3000/contenidos/101
+PUT http://localhost:3000/contenidos/20
 Content-Type: application/json
 
 {
-  "poster": "./posters/101.jpg",
+  "poster": "./posters/20.jpg",
   "titulo": "The Rings of Power",
   "categoria": "Serie",
   "generos": ["Acción", "Fantasía", "Aventura"],
